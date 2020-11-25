@@ -18,6 +18,9 @@ notshared_h = filter(enrol, highest_education_level == "Unknown")
 #filter enrol dataframe to show survey responses where details for gender were provided
 shared_g = filter(enrol, gender == "male" | gender == "female" | gender == "nonbinary" | gender == "other")
 
+#filter enrol dataframe to show survey responses where details for gender were provided (male or female)
+shared_mf = filter(enrol, gender == "male" | gender == "female")
+
 #filter enrol dataframe to show survey responses where employment status is provided (not unknown)
 shared_es = filter(enrol, employment_status != "Unknown")
 
@@ -27,6 +30,12 @@ shared_ea = filter(enrol, employment_area != "Unknown")
 #filter enrol dataframe to show survey responses where age range is provided (not unknown)
 shared_a = filter(enrol, age_range != "Unknown")
 
+#filter dataframe that filtered the survey responses where age range and male or female gender is provided (not unknown)
+shared_ag = filter(shared_a, gender == "male" | gender == "female")
+
 #filter enrol dataframe to show survey responses where highest education level is provided (not unknown)
 shared_h = filter(enrol, highest_education_level != "Unknown")
+
+#filter enrol dataframe to show information shared by individuals identifying as non-binary and other gender
+shared_gx = filter(enrol, gender == "nonbinary" | gender == "other")
 
