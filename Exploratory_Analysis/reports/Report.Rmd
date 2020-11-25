@@ -7,7 +7,7 @@ output:
     latex_engine: xelatex
 geometry: "a4paper, margin=2.5cm"
 mainfont: Calibri
-fontsize: 12pt
+fontsize: 10pt
 params:
   title: "Exploratory Data Analysis for Learning Analytics"
   subtitle: "Cyber Security students' willingness to sharing personal data"
@@ -36,15 +36,37 @@ words
 
 ## Enrolment analysis
 
-Data was provided by Learning Analytics regarding an online training course, entitled Cyber Security: Safety at Home, Online, in Life. This report summarises finding relating to the survey that student completed at enrollment and specifically reviews the amount of personal data that they are, and are not, willing to provide. The students enrolling on the course over the seven surveys.
+A dataset of numerous files in a variety of formats, compressed into a single folder, was provided by the Newcastle programme team for analysis. The material belonged to Learning Analytics and related to a series of an online training course, entitled Cyber Security: Safety at Home, Online, in Life. This report summarises the findings and insights relating to the survey students completed upon enrolment. Given that the training subject was online security I was interested to determine students' attitudes before the course began, and their willingness to provide personal data. 
 
-The seven courses were run over a period of two years, with intakes starting in September 2016, March 2017, September 2017, November 2017, February 2018, June 2018 and September 2018.
+Seven intakes of the course ran over a period of two years, with the first student enrolled on `r format(firststudentreport)`, the last student enrolled on `r format(laststudentreport)` meaning the seven course series ran over a period of over two and a half years.
+
+### Enrolment - key statistics
+
+The first course intake had the most student enrolment survey records but was also the longest in duration. In total 35,225 unique student enrolment records were assessed across the seven intakes. The courses overlapped in duration and varied in length, with the volumes of students applying for each course gradually reducing.
+
+Survey  |    First Student Enrolled   | Last Student Enrolled       |Duration (days) | Students
+--------|-----------------------------|------------------------------|--------------| ----------
+1   |  `r (cyber1firststudentreport)` | `r (cyber1laststudentreport)`|`r format(cyber1durationdaysunique)` | `r (count1unique)`
+2   |  `r (cyber2firststudentreport)` | `r (cyber2laststudentreport)`|`r format(cyber2durationdaysunique)` | `r (count2unique)`
+3   |  `r (cyber3firststudentreport)` | `r (cyber3laststudentreport)`|`r format(cyber3durationdaysunique)` | `r (count3unique)`
+4   |  `r (cyber4firststudentreport)` | `r (cyber4laststudentreport)`|`r format(cyber4durationdaysunique)` | `r (count4unique)`
+5   |  `r (cyber5firststudentreport)` | `r (cyber5laststudentreport)`|`r format(cyber5durationdaysunique)` | `r (count5unique)`
+6   |  `r (cyber6firststudentreport)` | `r (cyber6laststudentreport)`|`r format(cyber6durationdaysunique)` | `r (count6unique)`
+7   |  `r (cyber7firststudentreport)` | `r (cyber7laststudentreport)`|`r format(cyber7durationdaysunique)` | `r (count7unique)`
+
+\newpage
+
+Intake volumes for the Cyber Security course by year and survey grouping are provided below:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
-Survey_Response
-
 Annual_Survey_Response
+Employment_Status_Total
+Shared_Gender
+Shared_MF_by_Age
+Shared_Age_and_Gender_by_Year
+Employment_Status_by_Year
+
 ```
 
 \newpage
@@ -53,7 +75,7 @@ Annual_Survey_Response
 
 Working assumptions:
 
-- Duplicated learner_id records were exact copies of the same survey response. In total 2071 non-unique learner_id records were removed from the dataset prior to analysis. It was expected that the learner_id being 36 characters in length was expected to be unique and represent a single student. Example, 233b9253-e8e6-4734-8a7f-cb2c7845c85a.
+- It is assumed that duplicated learner_id records are exact copies of the same survey response. In total 2071 non-unique learner_id records were removed from the dataset prior to analysis. It was expected that the learner_id being 36 characters in length was expected to be unique and represents a single student. Example, 233b9253-e8e6-4734-8a7f-cb2c7845c85a.
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -61,6 +83,8 @@ Working assumptions:
 duplicate_table1
 
 ```
+
+- It is assumed that each record within the cyber security enrolments files corresponds to a student who provided details that truthfully reflected their gender, employment status and area, age range and highest educational level.
 
 
 

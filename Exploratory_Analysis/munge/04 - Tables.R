@@ -15,3 +15,4 @@ Duplicate_Records = ggplot(repeated, aes(x=survey))+
   labs(y = "Count of Survey Responses", x = "Intake",
        title = "Duplicate Learner_ID Analysis")
 ggsave(file.path('graphs', 'Duplicate_Records.pdf'))
+
