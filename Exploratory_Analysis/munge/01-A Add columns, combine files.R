@@ -21,7 +21,11 @@ cyber.security.6_enrolments$year = substr(cyber.security.6_enrolments$enrolled_a
 cyber.security.7_enrolments$year = substr(cyber.security.7_enrolments$enrolled_at, 1,4)
 
 #combine all files together into one dataframe
-enrol = rbind(cyber.security.1_enrolments,cyber.security.2_enrolments,cyber.security.3_enrolments,cyber.security.4_enrolments,cyber.security.5_enrolments,cyber.security.6_enrolments,cyber.security.7_enrolments)
+allfiles = rbind(cyber.security.1_enrolments,cyber.security.2_enrolments,cyber.security.3_enrolments,cyber.security.4_enrolments,cyber.security.5_enrolments,cyber.security.6_enrolments,cyber.security.7_enrolments)
 
 #change data type of year column from character to numeric values
-enrol$year = as.numeric(enrol$year)
+allfiles$year = as.numeric(allfiles$year)
+
+# remove duplicate learner_id rows
+enrol = allfiles[!duplicated(allfiles$learner_id), ]
+repeated = allfiles[duplicated(allfiles$learner_id),]

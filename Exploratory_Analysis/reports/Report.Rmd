@@ -36,20 +36,33 @@ words
 
 ## Enrolment analysis
 
-Lorem ipsum dolor sit amet, ad mea sumo vocibus graecis, at mea soleat doctus, usu elit dicta ne. Aliquid salutatus vix et, aperiri definiebas quo no. Vel ea assueverit disputando. Dicat alterum posidonium te qui.
+Data was provided by Learning Analytics regarding an online training course, entitled Cyber Security: Safety at Home, Online, in Life. This report summarises finding relating to the survey that student completed at enrollment and specifically reviews the amount of personal data that they are, and are not, willing to provide. The students enrolling on the course over the seven surveys.
 
-Vim vocibus assueverit in, iusto ridens oporteat ea vim, noster minimum reformidans. Scribentur mediocritatem, cu sed dicant audiam explicari, vim at viris libris mnesarchum. Id quod consul est. Eu mei accumsan officiis, habemus accusata periculis an eam. Sapientem definitiones ut mel, pri te dissentias temporibus.
+The seven courses were run over a period of two years, with intakes starting in September 2016, March 2017, September 2017, November 2017, February 2018, June 2018 and September 2018.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
 Survey_Response
+
+Annual_Survey_Response
 ```
 
 \newpage
 
 ## Data and assumptions
 
-Mea odio eripuit vocibus ei, dicun volutpat vis an. Ei mei errem detraxit gubergren, disputando accommodare voluptatibus ei per. Ius id facilis eleifend delicatissimi. Eos te solum singulis, his vitae nusquam no.
+Working assumptions:
+
+- Duplicated learner_id records were exact copies of the same survey response. In total 2071 non-unique learner_id records were removed from the dataset prior to analysis. It was expected that the learner_id being 36 characters in length was expected to be unique and represent a single student. Example, 233b9253-e8e6-4734-8a7f-cb2c7845c85a.
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert duplicate analysis
+duplicate_table1
+
+```
+
+
 
 ### Assumptions
 
