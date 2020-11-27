@@ -49,6 +49,16 @@ I returned to this phase once I had looked at the data and determined that I was
 
 During the Data Preparation it became clear there were duplicate learner_id records when the seven files were combined.I returned to this phase to determine how to handle duplicate records and decided the analysis would benefit from additional information about the number of students on each course, dates for first and last enrolment record and course duration.
 
+### Data Preparation
+
+### Modelling
+
+### Evaluation 
+
+### Deployment
+
+
+
 ## Key Findings
 
 ### Course timings, duration and student numbers
@@ -103,16 +113,38 @@ Survey No.| No. of Students | % of Students that Shared Data | Ave. Items Provid
 # Insert survey response plots
 
 Shared_Info
+
+```
+
+Most students willing to share information, provided details of gender. Male and females working for home were the largest groups in this category.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert survey response plots
+
 Shared_Gender
+
+```
+
+Students willing to share information about gender were split very evenly across age range group. There was a subset of individuals willing to share information on gender but not age range.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert survey response plots
+
 Shared_Gender_by_Age
+
+```
+
+Attitudes on sharing age and gender declined by year and survey but further analysis was required to determine if this was disportionate, course duration changed and student numbers varied.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert survey response plots
+
 Shared_Age_and_Gender_by_Year
 Shared_Gender_by_Age_by_Survey
 Shared_MF_by_Age_by_Survey
 Shared_MF_by_Age
 
 ```
-
-words
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
@@ -168,4 +200,18 @@ Duplicate_Records
 
 ## Notes
 
-Words
+I was mindful to apply the learning from the first module of the Masters degree course, Data Visualization - CSC8626.
+
+“Colors are an effective medium for communicating meaning. Well-chosen colors reduce the time to insight for your viewers and helps them understand your message sooner and more easily.”
+Source: https://www.forbes.com/sites/evamurray/2019/03/22/the-importance-of-color-in-data-visualizations/?sh=133b1c7a57ec
+Forbes, published 22 March 2019, Eva Murray, article title “The Importance Of Color In Data Visualizations
+
+“Titles and text are key elements in a visualization and help recall the message.” Beyond Memorability: Visualization Recognition and Recall Michelle A. Borkin
+
+“A visual channel is a way to control the appearance of marks, independent of the dimensionality of the geometric primitive.  There are many different visual channels […], such as position, color, shape, and size, etc..”
+Source: https://jenniewblog.wordpress.com/2016/03/08/marks-and-channels-chapter5/ Published March 8, 2016
+
+Colour, contrast and brightness are very important as “visual information is processed long before it reaches the brain” by the retina. “The very first level of the visual system, the retina, already provides information on colour, contrast, movement, and brightness. We notice individual objects 'at a glance' because they jump out from what we see as mere background.” 
+Source:https://www.sciencedaily.com/releases/2017/02/170208151226.htm
+Science Daily, published Feburary 8, 2017, article title “Zapping between channels in the retina”
+
