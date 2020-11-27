@@ -7,10 +7,10 @@ output:
     latex_engine: xelatex
 geometry: "a4paper, margin=2.5cm"
 mainfont: Calibri
-fontsize: 10pt
+fontsize: 12pt
 params:
   title: "Exploratory Data Analysis for Learning Analytics"
-  subtitle: "Cyber Security students' willingness to sharing personal data"
+  subtitle: "Cyber Security students' willingness to sharing data about themselves"
   org: "Newcastle University - CSC8631 Summative Assignment"
   author: "Issy Middleton - C1000051"
   date: "December 2020"
@@ -28,22 +28,32 @@ knitr::opts_knit$set(root.dir= normalizePath('..'))
 library("ProjectTemplate")
 load.project()
 # Run code in analysis.R script
-source("src/analysis.R")
+source("src/01 - Analysis.R")
 ```
 
 ## Summary
 
-words
-
-## Enrolment analysis
+This report provides additional documentation detailing the findings from my exploratory analysis. It is intended to be read alongside the Design and Implementation Report.  
 
 A dataset of numerous files in a variety of formats, compressed into a single folder, was provided by the Newcastle programme team for analysis. The material related to a series of online cyber security training courses, entitled Cyber Security: Safety at Home, Online, in Life. This report summarises the data management and exploratory analysis undertaken using the enrolment files. Given that the training subject was online security I was interested to determine students' willingness to share information relating to gender, employment and education. 
 
 Seven enrolment files were provided for the courses that ran over a period of two years. The first student enrolled on `r format(firststudentreport)`, the last student enrolled on `r format(laststudentreport)` indicating that the course series for a period of over two and a half years.
 
-### Enrolment - key statistics
+### Business Understanding
 
-In total, `r (enrolcount)` unique student enrolment records were assessed from seven survey files. The first survey file had the most enrolment records. The 'enrolled at' dates within the file indicate the first intake ran for the longest time.
+As the online training course contents related to Cyber Security I was particularly interested to determine students' attitudes to sharing data. Although the file contents were anonymised, items captured within the enrolment survey file included gender, age range, employment status, employment area and highest education level. 
+
+I returned to this phase once I had looked at the data and determined that I was interested in the enrolments files for the online cyber security course, particularly information provided on personal data. I assumed this data had been provided by students before the training had commenced and was truthful. I removed duplicate records from the combined file, assuming learner_id was unique.
+
+### Data Understanding
+
+During the Data Preparation it became clear there were duplicate learner_id records when the seven files were combined.I returned to this phase to determine how to handle duplicate records and decided the analysis would benefit from additional information about the number of students on each course, dates for first and last enrolment record and course duration.
+
+## Key Findings
+
+### Course timings, duration and student numbers
+
+In total, `r (enrolcount)` unique student enrolment records were assessed from seven survey files. 
 
 Survey No.|    Date First Student Enrolled   | Date Last Student Enrolled       |Duration (days) | No. of Students
 --------|-----------------------------|------------------------------|--------------| ----------
@@ -55,9 +65,9 @@ Survey No.|    Date First Student Enrolled   | Date Last Student Enrolled       
 6   |  `r (cyber6firststudentreport)` | `r (cyber6laststudentreport)`|`r format(cyber6durationdaysunique)` | `r (count6unique)`
 7   |  `r (cyber7firststudentreport)` | `r (cyber7laststudentreport)`|`r format(cyber7durationdaysunique)` | `r (count7unique)`
 
-\newpage
 
-The 'enrolled at' dates within the files  indicate that the courses overlapped in duration and varied in length, with the volumes of students applying for each course gradually reducing. Whilst enrolments within file four started after the third intake the last enrolment in the fourth file was prior to the last enrolment in file three. 
+
+The 'enrolled at' dates within the files  indicate that the courses overlapped in duration and varied in length, with the volumes of students applying for each course gradually reducing. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
@@ -67,15 +77,26 @@ Annual_Survey_Response
 
 ```
 
+### Amount of Data Shared by Students
+
 Students were asked for information on gender, age range, employment status, employment area and highest education level. Analysis was conducted on these five details to determine willingness to share.
 
-No. of students that shared data: `r format(Shared_Table_rows)`
-For students who shared data, they shared an average of `r format(mean(enrol$Shared_Info))` items.
-No. of students sharing gender: `r sum(Shared_Table$Shared_Gender)`
-No. of students sharing age range: `r sum(Shared_Table$Shared_Age_Range)`
-No. of students sharing employment status: `r sum(Shared_Table$Shared_Emp_Status)`
-No. of students sharing employment area: `r sum(Shared_Table$Shared_Emp_Area)`
-No. of students sharing highest education level: `r sum(Shared_Table$Shared_Highest_Ed)`
+The total number of students that shared data was `r format(Shared_Table_rows)`, which equates to `r (PercentSharing)` of total students. Over the seven enrolments, the percentage of students sharing data dropped from almost 12% to under 8%. However for those students that did share data the amount of details they provided stayed fairly level at around an average of 4.7 items per student, dropping very marginally in the last intak to 4.6.
+
+The average amount of data shared was low, at less than one item per student (`r (AveSharedItemsformatted)` items). Students that shared data provided an average of `r (AveSharedItemsbySharingformatted)` items with `r (PercentInfo5)`  of students that shared information providing all five requested details.
+
+Surprisingly the most commonly shared data item was gender with `r sum(Shared_Table$Shared_Gender)` students sharing this information. This detail was followed closely by `r sum(Shared_Table$Shared_Highest_Ed)` students sharing highest education level, `r sum(Shared_Table$Shared_Emp_Status)` sharing employment status,`r sum(Shared_Table$Shared_Age_Range)` sharing age range and `r sum(Shared_Table$Shared_Emp_Area)` sharing employment area.
+
+
+Survey No.| No. of Students | % of Students that Shared Data | Ave. Items Provided by Sharing Students
+----------|-----------------|------------------------| ------------------------
+1   |  `r (count1unique)`|    `r (Percent1)`    | `r (Amount_Shared1)`  
+2   |  `r (count2unique)`|    `r (Percent2)`    | `r (Amount_Shared2)`    
+3   |  `r (count3unique)`|    `r (Percent3)`    | `r (Amount_Shared3)`
+4   |  `r (count4unique)`|    `r (Percent4)`    | `r (Amount_Shared4)`
+5   |  `r (count5unique)`|    `r (Percent5)`    | `r (Amount_Shared5)`
+6   |  `r (count6unique)`|    `r (Percent6)`    | `r (Amount_Shared6)`
+7   |  `r (count7unique)`|    `r (Percent7)`    | `r (Amount_Shared7)`
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -130,6 +151,10 @@ Duplicate_Records
 - It is assumed that the data contained within the cyber security enrolments files was provided before the training had commenced.
 
 - It is assumed that each enrolment file relates to a course intake.
+
+- It is assumed that the order of questions was not changed over time and the sequence of the request had no impact on the students' willingness to share data.
+
+- It is assumed that the earliest 'enrolled at' dates within the file indicate the intake start date and the latest date is the course closure. This would indicate that whilst enrolments within file four started after the third intake it was a shorter course. 
 
 ### Data summary
 

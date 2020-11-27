@@ -1,6 +1,8 @@
 library('ProjectTemplate')
 load.project()
 
+dev.new(width=5, height=4)
+
 Shared_Gender = ggplot(shared_g, aes(x=gender, fill = employment_status))+
   theme_bw() +
   geom_bar() +
@@ -60,7 +62,7 @@ Annual_Survey_Response = ggplot(enrol, aes(x=year, fill = survey))+
     geom_bar(stat = "count") +
   geom_text(aes(label=..count..),stat="count",position=position_stack(0.5)) +
     labs(y = "Survey Responses", x = "Year", fill ="Survey No.", title = "Survey responses by course and year", subtitle = " ")
-  ggsave(file.path('graphs', 'Annual_Survey_Response.png'), width = 2, height = 2)
+  ggsave(file.path('graphs', 'Annual_Survey_Response.png'))
   
   
 Survey_Response = ggplot(enrol, aes(x=survey))+

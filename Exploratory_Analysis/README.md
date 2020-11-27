@@ -30,5 +30,11 @@ For every additional analysis created, it is recommended to add a separate file 
 library('ProjectTemplate') 
 load.project()
 
-You'll have access to all of your data, already fully preprocessed, and all of
+You'll have access to all of the project data, already fully pre-processed, and all of
 the libraries you want to use.
+
+The munge folder handles pre-processing scripts to extract and combine data columns, converting data types/variables etc. and outputs understandable and usable data. The output from the munge file indicates the nature of the analysis. 
+
+The RMarkdown report generate outputs. Repeated code is saved in the src folder and use source() to import it into the .Rmd file to avoid it being dominated by lots of code. 
+
+The src folder is just a place to store chunks of code that aren't pre-processing but you don't want in your Markdown folder, project template won't automatically run any files in here unless you call for them e.g. by knitting a Markdown document, for example "src/01-Analysis.R" in a code chunk.
