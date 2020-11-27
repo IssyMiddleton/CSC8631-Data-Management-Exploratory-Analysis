@@ -8,7 +8,7 @@ Duplicate_Records = ggplot(repeated, aes(x=survey))+
   geom_bar(fill = "steelblue", colour = "steelblue") +
   scale_x_continuous(breaks = c(1:7), 
                      labels = factor(1:7)) +
-  labs(y = "Count of Duplicate", x = "Enrolment Survey",
-       title = "Duplicate Enrolment Records by Course Intake", subtitle = " ")
+  labs(y = "Duplicates", x = " Survey",
+       title = "Duplicate enrolment records by survey", subtitle = " ")
 ggsave(file.path('graphs', 'Duplicate_Records.pdf'),width=3, height=3, units="in")
 

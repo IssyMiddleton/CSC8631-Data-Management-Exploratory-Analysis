@@ -22,6 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir= normalizePath('..'))
 ```
 
+
 ```{r include=FALSE}
 # Load project
 library("ProjectTemplate")
@@ -36,13 +37,13 @@ words
 
 ## Enrolment analysis
 
-A dataset of numerous files in a variety of formats, compressed into a single folder, was provided by the Newcastle programme team for analysis. The material belonged to Learning Analytics and related to a series of an online training course, entitled Cyber Security: Safety at Home, Online, in Life. This report summarises the findings and insights relating to the survey students completed upon enrolment. Given that the training subject was online security I was interested to determine students' attitudes before the course began, and their willingness to provide personal data. 
+A dataset of numerous files in a variety of formats, compressed into a single folder, was provided by the Newcastle programme team for analysis. The material related to a series of online cyber security training courses, entitled Cyber Security: Safety at Home, Online, in Life. This report summarises the data management and exploratory analysis undertaken using the enrolment files. Given that the training subject was online security I was interested to determine students' willingness to share information relating to gender, employment and education. 
 
-Seven intakes of the course ran over a period of two years, with the first student enrolled on `r format(firststudentreport)`, the last student enrolled on `r format(laststudentreport)` meaning the seven course series ran over a period of over two and a half years.
+Seven enrolment files were provided for the courses that ran over a period of two years. The first student enrolled on `r format(firststudentreport)`, the last student enrolled on `r format(laststudentreport)` indicating that the course series for a period of over two and a half years.
 
 ### Enrolment - key statistics
 
-In total, `r (enrolcount)` unique student enrolment records were assessed from seven survey files. The first survey file had the most enrolment records but the 'enrolled at' dates had the largest variance.
+In total, `r (enrolcount)` unique student enrolment records were assessed from seven survey files. The first survey file had the most enrolment records. The 'enrolled at' dates within the file indicate the first intake ran for the longest time.
 
 Survey No.|    Date First Student Enrolled   | Date Last Student Enrolled       |Duration (days) | No. of Students
 --------|-----------------------------|------------------------------|--------------| ----------
@@ -56,20 +57,31 @@ Survey No.|    Date First Student Enrolled   | Date Last Student Enrolled       
 
 \newpage
 
-The 'enrolled at' dates within the files would indicate that the courses overlapped in duration and varied in length, with the volumes of students applying for each course gradually reducing. 
+The 'enrolled at' dates within the files  indicate that the courses overlapped in duration and varied in length, with the volumes of students applying for each course gradually reducing. Whilst enrolments within file four started after the third intake the last enrolment in the fourth file was prior to the last enrolment in file three. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
-Annual_Survey_Response
 Survey_Response
+Year_Response
+Annual_Survey_Response
 
 ```
 
-words
+Students were asked for information on gender, age range, employment status, employment area and highest education level. Analysis was conducted on these five details to determine willingness to share.
+
+No. of students that shared data: `r format(Shared_Table_rows)`
+For students who shared data, they shared an average of `r format(mean(enrol$Shared_Info))` items.
+No. of students sharing gender: `r sum(Shared_Table$Shared_Gender)`
+No. of students sharing age range: `r sum(Shared_Table$Shared_Age_Range)`
+No. of students sharing employment status: `r sum(Shared_Table$Shared_Emp_Status)`
+No. of students sharing employment area: `r sum(Shared_Table$Shared_Emp_Area)`
+No. of students sharing highest education level: `r sum(Shared_Table$Shared_Highest_Ed)`
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
 
+Shared_Info
 Shared_Gender
 Shared_Gender_by_Age
 Shared_Age_and_Gender_by_Year
@@ -118,8 +130,6 @@ Duplicate_Records
 - It is assumed that the data contained within the cyber security enrolments files was provided before the training had commenced.
 
 - It is assumed that each enrolment file relates to a course intake.
-
-
 
 ### Data summary
 

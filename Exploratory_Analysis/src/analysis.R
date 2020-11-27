@@ -59,17 +59,25 @@ Annual_Survey_Response = ggplot(enrol, aes(x=year, fill = survey))+
     theme_bw() +
     geom_bar(stat = "count") +
   geom_text(aes(label=..count..),stat="count",position=position_stack(0.5)) +
-    labs(y = "Survey", x = "Year", fill ="Survey No.", title = "Information provided by survey", subtitle = " ")
-  ggsave(file.path('graphs', 'Annual_Survey_Response.pdf'))
+    labs(y = "Survey Responses", x = "Year", fill ="Survey No.", title = "Survey responses by course and year", subtitle = " ")
+  ggsave(file.path('graphs', 'Annual_Survey_Response.png'), width = 2, height = 2)
   
   
 Survey_Response = ggplot(enrol, aes(x=survey))+
     theme_bw() +
-    geom_bar(colour ="steelblue", fill = "steelblue") +
-    labs(y = "Survey Responses", x = "Survey", title = "Students providing information", subtitle = " ")
-  ggsave(file.path('graphs', 'Survey_Response.pdf'))
+    geom_bar(colour ="steelblue", fill = "steelblue")  +
+  geom_text(aes(label=..count..),stat="count",position=position_stack(0.5)) +
+    labs(y = "Survey Responses", x = "Survey", title = "Enrolment surveys by course", subtitle = " ")
+  ggsave(file.path('graphs', 'Survey_Response_By_Course.png'), width = 2, height = 2)
   
-
+Year_Response = ggplot(enrol, aes(x=year))+
+    theme_bw() +
+    geom_bar(colour ="steelblue", fill = "steelblue")  +
+    geom_text(aes(label=..count..),stat="count",position=position_stack(0.5)) +
+    labs(y = "Survey Responses", x = "Year", title = "Enrolment surveys by year", subtitle = " ")
+  ggsave(file.path('graphs', 'Survey_Response_By_Year.png'), width = 2, height = 2)
+  
+  
 Employment_Area_Total = ggplot(shared_ea, aes(x=survey, fill = employment_area))+
   theme_bw() +
   geom_bar() +
@@ -105,3 +113,14 @@ Not_Provided = ggplot(notshared_g, aes(x=survey, fill = age_range))+
        title = "Students that didn't provided information on gender", subtitle = " ")
 
 Percent = plot(prop.table(table(enrol$gender)))
+
+Shared_Info = ggplot(enrol, aes(x=Shared_Info))+
+  theme_bw() +
+  geom_bar(colour ="steelblue", fill = "steelblue") +
+  geom_text(aes(label=..count..),stat="count",position=position_stack(0.5)) +
+  scale_x_continuous(breaks = c(0:5),labels = factor(0:5)) +
+  labs(y = "Survey Responses", x = "No. of details shared", title = "Amount of information shared by students", subtitle = " ")
+ggsave(file.path('graphs', 'Shared_Info.png'), width = 3, height = 3)
+
+course_numbers = summary(enrol$survey)
+
