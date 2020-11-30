@@ -1,7 +1,7 @@
 library('ProjectTemplate')
 load.project()
 
-dev.new(width=5, height=4)
+dev.new(width=4, height=3)
 
 Shared_Gender = ggplot(shared_g, aes(x=gender, fill = employment_status))+
   theme_bw() +
@@ -81,24 +81,32 @@ Year_Response = ggplot(enrol, aes(x=year))+
   
   
 Employment_Area_Total = ggplot(shared_ea, aes(x=survey, fill = employment_area))+
-  theme_bw() +
-  geom_bar() +
-  labs(y = "Survey Response", x = "Intake/Survey", fill = "Employment Area", 
+    theme_bw() +
+  geom_bar()+
+  scale_x_continuous(breaks = c(1:7), 
+                     labels = factor(1:7)) +
+  theme(legend.text = element_text(color = "black", size = 7)) +
+  labs(y = "Survey Response", x = "Survey", fill = "Employment Area", 
        title = "Students that provided employment area", subtitle = " ")
   ggsave(file.path('graphs', 'Survey_Responses_on_Employment_Area.pdf'))
 
 Employment_Area_by_Year = ggplot(shared_ea, aes(x=year, fill = employment_area))+
   theme_bw() +
   geom_bar() +
+  scale_x_continuous(breaks = c(1:7), 
+                     labels = factor(1:7)) +
+  theme(legend.text = element_text(color = "black", size = 7)) +
   labs(y = "Survey Response", x = "Year", fill = "Employment Area", 
-       title = "Students that provided information on employment area", subtitle = " ")
+       title = "Students that provided employment area", subtitle = " ")
   ggsave(file.path('graphs', 'Survey_Responses_on_Employment_Area_by_Year.pdf'))
 
 Employment_Status_Total = ggplot(shared_es, aes(x=survey, fill = employment_status))+
   theme_bw() +
   geom_bar() +
-  labs(y = "Survey Response", x = "Intake/Survey", fill = "Employment Area", 
-       title = "Students that Provided Information on employment status", subtitle = " ")
+  scale_x_continuous(breaks = c(1:7), 
+                     labels = factor(1:7)) +
+  labs(y = "Survey Response", x = "Survey", fill = "Employment Status", 
+       title = "Students that provided employment status", subtitle = " ")
   ggsave(file.path('graphs', 'Survey_Responses_on_Employment_Status.pdf'))
                 
 Employment_Status_by_Year = ggplot(shared_es, aes(x=year, fill = employment_status))+

@@ -51,13 +51,32 @@ During the Data Preparation it became clear there were duplicate learner_id reco
 
 ### Data Preparation
 
+I initially used R and RStudio to start reviewing the data contained within the enrolment files. I created additional columns, some of which were later discarded, combined the files and generated initial statistics. Once I was comfortable with the initial data pre-processing steps I created a new R Project document, loaded the ProjectTemplate library and created a new project. Running the load.project() script in R created a project folder structure and loaded R packages.
+
+The ProjectTemplate was particularly helpful in organising the project files and determining important content. I found the config file particularly helpful to manage the loading of R packages, project settings, e.g. caching data and running pre-processing scripts. I didn’t use all of the folders though and an element of personal discretion was required to determine what was stored where.
+
+The pre-processing scripts (or data munging code) for the project are stored in the 'munge' folder. These preprocessing scripts stored in `munge` will be executed sequentially when load.project()` is called. Numbers within filenames indicate the sequential order of the scripts. The scripts:
+
+- add columns at runtime, merge data sets and adjust data formats
+- remove duplicate records where learner_id is not unique, calculating course duration between first and last enrolment date
+- filters the data by groups of students willing to share data
+- categorises data
+- provides additional data items on duplicate records
+- calculates volume of shared data items 
+- determines counts and percentages of data that it shared by student, by survey
+- and calculates counts and percentage of data that is not shared 
+
 ### Modelling
+
+I used the RMarkdown file to generate a report to be stored in the Reports section of the project file structure. During the generation of graphs and tables I returned to the data preparation phase frequently. After working for some time on the enrolment files I realised that it was necessary to calculate the number of students to determine the percentage of students sharing data. I added the 'Key Findings' section of this report following this discovery. Regularly, I would update the Git version control by using a Commit and Push commands. 
 
 ### Evaluation 
 
+At this stage I took time to thoroughly evaluate my work, creating the summary reports and presentation which reviews the steps executed. I checked there was a sufficient story to tell, regarding all the tools and techniques used. During this phase, I decided to update some of my analysis. 
+
 ### Deployment
 
-
+The deployment phase of this project included publishing a final version of the project to GitHub and ensuring my project files could be compressed and submitted in advance of the assessment deadline.
 
 ## Key Findings
 
@@ -84,6 +103,7 @@ Year_Response
 Annual_Survey_Response
 
 ```
+Course intake dropped by c25% annually.
 
 ### Amount of Data Shared by Students
 
@@ -96,12 +116,9 @@ Shared_Info
 
 ```
 
-The number of students that shared data was `r format(Shared_Table_rows)`, which equates to `r (PercentSharing)` of total students. 
+The total number of students that shared data at least one detail was `r format(Shared_Table_rows)`, which equates to `r (PercentSharing)` of total students. 
 
-Surprisingly the most commonly shared data item was gender with `r sum(Shared_Table$Shared_Gender)` students sharing this information. This detail was followed closely by `r sum(Shared_Table$Shared_Highest_Ed)` students sharing highest education level, `r sum(Shared_Table$Shared_Emp_Status)` sharing employment status,`r sum(Shared_Table$Shared_Age_Range)` sharing age range and `r sum(Shared_Table$Shared_Emp_Area)` sharing employment area.
-
-
-Survey No. | % of Students that Shared Data | Ave. Items Provided by Sharing Students
+Survey No. | % of Students \* | Ave. Items \*
 -----------|------------------------| ------------------------
 1   |   `r (Percent1)`    | `r (Amount_Shared1)`  
 2   |   `r (Percent2)`    | `r (Amount_Shared2)`    
@@ -110,11 +127,11 @@ Survey No. | % of Students that Shared Data | Ave. Items Provided by Sharing Stu
 5   |   `r (Percent5)`    | `r (Amount_Shared5)`
 6   |   `r (Percent6)`    | `r (Amount_Shared6)`
 7   |   `r (Percent7)`    | `r (Amount_Shared7)`
+\* where students shared at least one of the five lifestyle details
 
-Over the seven enrolments, the percentage of students sharing data dropped from almost 12% to under 8%. However for those students that did share data the amount of details they provided stayed fairly level at around an average of 4.7 items per student, dropping very marginally in the last intake to 4.6.
+Over the seven enrolments, the percentage of students sharing data dropped from almost 12% to under 8%. However for those students that did share data the amount of details they provided stayed fairly level at around an average of 4.7 items per student, dropping very marginally in the last intake to 4.6. Where students did share at least one, `r (PercentInfo5)`  of students provide all five requested details.
 
-The average amount of data shared was low, at less than one item per student (`r (AveSharedItemsformatted)` items). Students that shared data provided an average of `r (AveSharedItemsbySharingformatted)` items with `r (PercentInfo5)`  of students that shared information providing all five requested details.
-
+\newpage
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
 
@@ -131,42 +148,41 @@ Shared_Gender_by_Age
 
 ```
 
-Students willing to share information about gender were split very evenly across age range group. There was a subset of individuals willing to share information on gender but not age range.
+Students willing to share information about gender were split evenly across age range group. Noticably there was a subset willing to share information on gender but not age range.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
 
-Shared_Age_and_Gender_by_Year
-Shared_Gender_by_Age_by_Survey
 Shared_MF_by_Age_by_Survey
-Shared_MF_by_Age
+Shared_Age_and_Gender_by_Year
 
 ```
 
-Attitudes on sharing age and gender declined by year and survey but further analysis was required to determine if this was disportionate, course duration changed and student numbers varied.
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-# Insert survey response plots
-
-Shared_Gender_by_Emp_by_Survey
-
-```
-
-Words about employment graphs to follow
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-Employment_Status_Total
-Employment_Area_Total
-Employment_Area_by_Year
-Employment_Status_by_Year
-```
-
+Attitudes on sharing age and gender declined by year and survey. Initial analysis would indicate data sharing dropped more than course enrolment by year, i.e. greater than a 25% decline. However more analysis would be required.
 
 \newpage
 
-## Data and assumptions
+The employment status information shared by students was particularly varied and dropped annually.
 
-### Assumptions
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+Employment_Status_Total
+Employment_Status_by_Year
+
+```
+
+\newpage
+The employment area information shared by students was particularly varied and dropped annually.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+Employment_Area_Total
+Employment_Area_by_Year
+```
+
+## Conclusions
+
+Over the course series, students shared less data. The most commonly shared data item was gender with `r sum(Shared_Table$Shared_Gender)` students sharing this information, `r sum(Shared_Table$Shared_Highest_Ed)` students shared highest education level, `r sum(Shared_Table$Shared_Emp_Status)` shared employment status,`r sum(Shared_Table$Shared_Age_Range)` shared age range and `r sum(Shared_Table$Shared_Emp_Area)` shared employment area.
+
+## Assumptions
 
 - It is assumed that duplicated learner_id records are exact copies of the same survey response. In total 2071 non-unique learner_id records were removed from the dataset prior to analysis. It was expected that the learner_id being 36 characters in length was expected to be unique and represents a single student. Example, 233b9253-e8e6-4734-8a7f-cb2c7845c85a.
 
@@ -187,7 +203,7 @@ Duplicate_Records
 
 - It is assumed that the earliest 'enrolled at' dates within the file indicate the intake start date and the latest date is the course closure. This would indicate that whilst enrolments within file four started after the third intake it was a shorter course. 
 
-### Data summary
+
 
 
 
