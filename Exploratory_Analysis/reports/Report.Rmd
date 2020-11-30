@@ -68,7 +68,7 @@ The pre-processing scripts (or data munging code) for the project are stored in 
 
 ### Modelling
 
-I used the RMarkdown file to generate a report to be stored in the Reports section of the project file structure. During the generation of graphs and tables I returned to the data preparation phase frequently. After working for some time on the enrolment files I realised that it was necessary to calculate the number of students to determine the percentage of students sharing data. I added the 'Key Findings' section of this report following this discovery. Regularly, I would update the Git version control by using a Commit and Push commands. 
+I used the RMarkdown file to generate a report to be stored in the Reports section of the project file structure. During the generation of graphs and tables I returned to the data preparation phase frequently. After working for some time on the enrolment files I realised that it was necessary to calculate the number of students to determine the percentage of students sharing data. I added the 'Key Findings' section of this report following this discovery. Regularly, I would update the Git version control by using a Commit and Push commands. Particular attention was needed to ensure titles and axis were labelled consistently.
 
 ### Evaluation 
 
