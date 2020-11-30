@@ -1,0 +1,64 @@
+---
+title: "Overview Presentation"
+author: "Issy Middleton"
+date: "30/11/2020"
+output: 
+  powerpoint_presentation:
+    reference: OverviewPresentation.potx
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_knit$set(root.dir= normalizePath('..'))
+```
+
+```{r include=FALSE}
+# Load project
+library("ProjectTemplate")
+load.project()
+
+```
+
+# Contents
+
+This is an R Markdown presentation, summarising the Exploratory_Analysis project conducted by Issy Middleton for CSC8631 - Data Management & Exploratory Analysis. 
+
+
+* Looking at the data and deciding on an area of interest
+* Starting the analysis
+* Using ProjectTemplate
+* Pre-processing
+* Syncing GitHub and using Git for Commit 
+* Producing graphs and tables
+* Loading into an RMarkdown report
+
+# Looking at the data
+
+![Initially I reviewed the decompressed files. It was possible to determine from the file sizes that there was missing data. The files related to a course was entitled Cyber Security: Safety at Home, Online, in Life.](Images/Files.jpg)
+
+# Still looking at the data
+
+I loaded sample data into RStudio and started looking at the data using R commands. It was possible to determine the size of the tables, the types of data that had been captured and see missing items. It was possible to determine the types of data that had been captured and see missing items.
+
+```{r cyber.security.1_enrolments, echo = TRUE}
+glimpse(cyber.security.1_enrolments)
+```
+
+# Looking at the data and deciding on an area of interest
+
+
+# Using ProjectTemplate
+
+
+# Pre-processing
+
+
+
+# Syncing GitHub and using Git for Commit 
+
+
+# Producing graphs and tables
+
+
+# Loading into an RMarkdown report
+

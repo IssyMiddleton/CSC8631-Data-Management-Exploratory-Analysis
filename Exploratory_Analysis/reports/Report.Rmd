@@ -9,7 +9,7 @@ geometry: "a4paper, margin=2.5cm"
 mainfont: Calibri
 fontsize: 12pt
 params:
-  title: "Exploratory Data Analysis for Learning Analytics"
+  title: "Data Management & Exploratory Analysis"
   subtitle: "Cyber Security students' willingness to sharing data about themselves"
   org: "Newcastle University - CSC8631 Summative Assignment"
   author: "Issy Middleton - C1000051"
@@ -75,8 +75,6 @@ Survey No.|    Date First Student Enrolled   | Date Last Student Enrolled       
 6   |  `r (cyber6firststudentreport)` | `r (cyber6laststudentreport)`|`r format(cyber6durationdaysunique)` | `r (count6unique)`
 7   |  `r (cyber7firststudentreport)` | `r (cyber7laststudentreport)`|`r format(cyber7durationdaysunique)` | `r (count7unique)`
 
-
-
 The 'enrolled at' dates within the files  indicate that the courses overlapped in duration and varied in length, with the volumes of students applying for each course gradually reducing. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -91,24 +89,6 @@ Annual_Survey_Response
 
 Students were asked for information on gender, age range, employment status, employment area and highest education level. Analysis was conducted on these five details to determine willingness to share.
 
-The total number of students that shared data was `r format(Shared_Table_rows)`, which equates to `r (PercentSharing)` of total students. Over the seven enrolments, the percentage of students sharing data dropped from almost 12% to under 8%. However for those students that did share data the amount of details they provided stayed fairly level at around an average of 4.7 items per student, dropping very marginally in the last intak to 4.6.
-
-The average amount of data shared was low, at less than one item per student (`r (AveSharedItemsformatted)` items). Students that shared data provided an average of `r (AveSharedItemsbySharingformatted)` items with `r (PercentInfo5)`  of students that shared information providing all five requested details.
-
-Surprisingly the most commonly shared data item was gender with `r sum(Shared_Table$Shared_Gender)` students sharing this information. This detail was followed closely by `r sum(Shared_Table$Shared_Highest_Ed)` students sharing highest education level, `r sum(Shared_Table$Shared_Emp_Status)` sharing employment status,`r sum(Shared_Table$Shared_Age_Range)` sharing age range and `r sum(Shared_Table$Shared_Emp_Area)` sharing employment area.
-
-
-Survey No.| No. of Students | % of Students that Shared Data | Ave. Items Provided by Sharing Students
-----------|-----------------|------------------------| ------------------------
-1   |  `r (count1unique)`|    `r (Percent1)`    | `r (Amount_Shared1)`  
-2   |  `r (count2unique)`|    `r (Percent2)`    | `r (Amount_Shared2)`    
-3   |  `r (count3unique)`|    `r (Percent3)`    | `r (Amount_Shared3)`
-4   |  `r (count4unique)`|    `r (Percent4)`    | `r (Amount_Shared4)`
-5   |  `r (count5unique)`|    `r (Percent5)`    | `r (Amount_Shared5)`
-6   |  `r (count6unique)`|    `r (Percent6)`    | `r (Amount_Shared6)`
-7   |  `r (count7unique)`|    `r (Percent7)`    | `r (Amount_Shared7)`
-
-
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
 
@@ -116,7 +96,24 @@ Shared_Info
 
 ```
 
-Most students willing to share information, provided details of gender. Male and females working for home were the largest groups in this category.
+The number of students that shared data was `r format(Shared_Table_rows)`, which equates to `r (PercentSharing)` of total students. 
+
+Surprisingly the most commonly shared data item was gender with `r sum(Shared_Table$Shared_Gender)` students sharing this information. This detail was followed closely by `r sum(Shared_Table$Shared_Highest_Ed)` students sharing highest education level, `r sum(Shared_Table$Shared_Emp_Status)` sharing employment status,`r sum(Shared_Table$Shared_Age_Range)` sharing age range and `r sum(Shared_Table$Shared_Emp_Area)` sharing employment area.
+
+
+Survey No. | % of Students that Shared Data | Ave. Items Provided by Sharing Students
+-----------|------------------------| ------------------------
+1   |   `r (Percent1)`    | `r (Amount_Shared1)`  
+2   |   `r (Percent2)`    | `r (Amount_Shared2)`    
+3   |   `r (Percent3)`    | `r (Amount_Shared3)`
+4   |   `r (Percent4)`    | `r (Amount_Shared4)`
+5   |   `r (Percent5)`    | `r (Amount_Shared5)`
+6   |   `r (Percent6)`    | `r (Amount_Shared6)`
+7   |   `r (Percent7)`    | `r (Amount_Shared7)`
+
+Over the seven enrolments, the percentage of students sharing data dropped from almost 12% to under 8%. However for those students that did share data the amount of details they provided stayed fairly level at around an average of 4.7 items per student, dropping very marginally in the last intake to 4.6.
+
+The average amount of data shared was low, at less than one item per student (`r (AveSharedItemsformatted)` items). Students that shared data provided an average of `r (AveSharedItemsbySharingformatted)` items with `r (PercentInfo5)`  of students that shared information providing all five requested details.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
@@ -125,7 +122,7 @@ Shared_Gender
 
 ```
 
-Students willing to share information about gender were split very evenly across age range group. There was a subset of individuals willing to share information on gender but not age range.
+Male and females working for home were the largest groups willing to share gender.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
@@ -134,7 +131,7 @@ Shared_Gender_by_Age
 
 ```
 
-Attitudes on sharing age and gender declined by year and survey but further analysis was required to determine if this was disportionate, course duration changed and student numbers varied.
+Students willing to share information about gender were split very evenly across age range group. There was a subset of individuals willing to share information on gender but not age range.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
@@ -145,6 +142,8 @@ Shared_MF_by_Age_by_Survey
 Shared_MF_by_Age
 
 ```
+
+Attitudes on sharing age and gender declined by year and survey but further analysis was required to determine if this was disportionate, course duration changed and student numbers varied.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Insert survey response plots
@@ -200,7 +199,7 @@ Duplicate_Records
 
 ## Notes
 
-I was mindful to apply the learning from the first module of the Masters degree course, Data Visualization - CSC8626.
+I was mindful to apply the learning from the first module of the Masters degree course, Data Visualization - CSC8626. In particular the Gestalt design principles of Proximity, Repetition, Alignment and Contrast.
 
 “Colors are an effective medium for communicating meaning. Well-chosen colors reduce the time to insight for your viewers and helps them understand your message sooner and more easily.”
 Source: https://www.forbes.com/sites/evamurray/2019/03/22/the-importance-of-color-in-data-visualizations/?sh=133b1c7a57ec
