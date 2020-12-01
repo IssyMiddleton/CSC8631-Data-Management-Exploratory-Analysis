@@ -5,6 +5,7 @@ enrol = allfiles[!duplicated(allfiles$learner_id), ]
 repeated = allfiles[duplicated(allfiles$learner_id),]
 enrolcount = nrow(enrol)
 repeatedcount = nrow(repeated)
+allcount = nrow(allfiles)
 
 #convert the enrolled_at column of characters to a new date formatted column, calculate duration
 enrol$enroldate = as.POSIXct(c(enrol$enrolled_at))

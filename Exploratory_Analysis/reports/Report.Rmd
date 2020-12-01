@@ -7,7 +7,7 @@ output:
     latex_engine: xelatex
 geometry: "a4paper, margin=2.5cm"
 mainfont: Calibri
-fontsize: 12pt
+fontsize: 11.5pt
 params:
   title: "Data Management & Exploratory Analysis"
   subtitle: "Cyber Security students' willingness to sharing data about themselves"
@@ -20,6 +20,7 @@ params:
 # Knitr setup
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir= normalizePath('..'))
+
 ```
 
 
@@ -32,7 +33,6 @@ source("src/01 - Analysis.R")
 ```
 
 ## Summary
-
 This report provides additional documentation detailing the findings from my exploratory analysis. It is intended to be read alongside the Design and Implementation Report.  
 
 A dataset of numerous files in a variety of formats, compressed into a single folder, was provided by the Newcastle programme team for analysis. The material related to a series of online cyber security training courses, entitled Cyber Security: Safety at Home, Online, in Life. This report summarises the data management and exploratory analysis undertaken using the enrolment files. Given that the training subject was online security I was interested to determine students' willingness to share information relating to gender, employment and education. 
@@ -40,17 +40,14 @@ A dataset of numerous files in a variety of formats, compressed into a single fo
 Seven enrolment files were provided for the courses that ran over a period of two years. The first student enrolled on `r format(firststudentreport)`, the last student enrolled on `r format(laststudentreport)` indicating that the course series for a period of over two and a half years.
 
 ### Business Understanding
-
 As the online training course contents related to Cyber Security I was particularly interested to determine students' attitudes to sharing data. Although the file contents were anonymised, items captured within the enrolment survey file included gender, age range, employment status, employment area and highest education level. 
 
 I returned to this phase once I had looked at the data and determined that I was interested in the enrolments files for the online cyber security course, particularly information provided on personal data. I assumed this data had been provided by students before the training had commenced and was truthful. I removed duplicate records from the combined file, assuming learner_id was unique.
 
 ### Data Understanding
-
 During the Data Preparation it became clear there were duplicate learner_id records when the seven files were combined.I returned to this phase to determine how to handle duplicate records and decided the analysis would benefit from additional information about the number of students on each course, dates for first and last enrolment record and course duration.
 
 ### Data Preparation
-
 I initially used R and RStudio to start reviewing the data contained within the enrolment files. I created additional columns, some of which were later discarded, combined the files and generated initial statistics. Once I was comfortable with the initial data pre-processing steps I created a new R Project document, loaded the ProjectTemplate library and created a new project. Running the load.project() script in R created a project folder structure and loaded R packages.
 
 The ProjectTemplate was particularly helpful in organising the project files and determining important content. I found the config file particularly helpful to manage the loading of R packages, project settings, e.g. caching data and running pre-processing scripts. I didn’t use all of the folders though and an element of personal discretion was required to determine what was stored where.
@@ -67,15 +64,12 @@ The pre-processing scripts (or data munging code) for the project are stored in 
 - and calculates counts and percentage of data that is not shared 
 
 ### Modelling
-
 I used the RMarkdown file to generate a report to be stored in the Reports section of the project file structure. During the generation of graphs and tables I returned to the data preparation phase frequently. After working for some time on the enrolment files I realised that it was necessary to calculate the number of students to determine the percentage of students sharing data. I added the 'Key Findings' section of this report following this discovery. Regularly, I would update the Git version control by using a Commit and Push commands. Particular attention was needed to ensure titles and axis were labelled consistently.
 
 ### Evaluation 
-
 At this stage I took time to thoroughly evaluate my work, creating the summary reports and presentation which reviews the steps executed. I checked there was a sufficient story to tell, regarding all the tools and techniques used. During this phase, I decided to update some of my analysis. At this stage I amended colour templates to be colour-blind friendly and made sure my graph formatting was consistent.
 
 ### Deployment
-
 The deployment phase of this project included publishing a final version of the project to GitHub and ensuring my project files could be compressed and submitted in advance of the assessment deadline. The use of RMarkdown reports, README files and comments within the R scripts increases transparency, allows the analysis to be reproduced or repeated.
 
 ## Key Findings
@@ -104,13 +98,13 @@ Annual_Survey_Response
 
 ```
 Course intake dropped by c25% annually.
-
+\newpage
 ### Amount of Data Shared by Students
 
 Students were asked for information on gender, age range, employment status, employment area and highest education level. Analysis was conducted on these five details to determine willingness to share.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-# Insert survey response plots
+# Insert student plot
 
 Shared_Info
 
@@ -132,63 +126,81 @@ Survey No. | % of Students \* | Ave. Items \*
 Over the seven enrolments, the percentage of students sharing data dropped from almost 12% to under 8%. However for those students that did share data the amount of details they provided stayed fairly level at around an average of 4.7 items per student, dropping very marginally in the last intake to 4.6. Where students did share at least one, `r (PercentInfo5)`  of students provide all five requested details.
 
 \newpage
+Students willing to share data dropped over time. Males were slightly more likely to share details than females, although this changed slightly in the last two course intakes.
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-# Insert survey response plots
+# Insert overview gender plots
+Gender_Total
+Gender_by_Year
+
+```
+
+\newpage
+Male and females working for home were the largest groups willing to share gender.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert student gender plot
 
 Shared_Gender
 
 ```
-
-Male and females working for home were the largest groups willing to share gender.
+Students willing to share information about gender were split evenly across age range group, with males 26 -35 slightly more likely to share. Noticably there was a subset willing to share information on gender but not age range.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-# Insert survey response plots
+# Insert gender by age plot
 
 Shared_Gender_by_Age
 
 ```
-
-Students willing to share information about gender were split evenly across age range group. Noticably there was a subset willing to share information on gender but not age range.
+\newpage
+Attitudes on sharing age and gender declined by year and survey. Initial analysis would indicate data sharing dropped more than course enrolment by year, i.e. greater than a 25% decline. However more analysis would be required.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-# Insert survey response plots
+# Insert Male Female response plots
 
 Shared_MF_by_Age_by_Survey
 Shared_Age_and_Gender_by_Year
 
 ```
+\newpage
+The age information shared by students showed attitudes to sharing were evenly spread across age brackets and dropped annually.
 
-Attitudes on sharing age and gender declined by year and survey. Initial analysis would indicate data sharing dropped more than course enrolment by year, i.e. greater than a 25% decline. However more analysis would be required.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert age response plots
+Age_Range_Total
+Age_Range_by_Year
+
+```
 
 \newpage
-
 The employment status information shared by students was particularly varied and dropped annually.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert employment status response plots
 Employment_Status_Total
 Employment_Status_by_Year
 
 ```
-
 \newpage
 The employment area information shared by students was particularly varied and dropped annually.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert employment area response plots
 Employment_Area_Total
 Employment_Area_by_Year
 ```
-
+\newpage
 The highest level of education information shared by students indicated a larger group with degree education. Students sharing information on education dropped annually.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert highest education response plots
 Highest_Ed_Total
 Highest_Ed_by_Year
 ```
 
-
 ## Conclusions
 
-Over the course series, students shared less data. The most commonly shared data item was gender with `r sum(Shared_Table$Shared_Gender)` students sharing this information, `r sum(Shared_Table$Shared_Highest_Ed)` students shared highest education level, `r sum(Shared_Table$Shared_Emp_Status)` shared employment status,`r sum(Shared_Table$Shared_Age_Range)` shared age range and `r sum(Shared_Table$Shared_Emp_Area)` shared employment area.
+Over the course series, students shared less data. The most commonly shared data item was gender with `r sum(Shared_Table$Shared_Gender)` students sharing this information, `r percent(sum(Shared_Table$Shared_Gender)/enrolcount)` of the total students enrolled. `r sum(Shared_Table$Shared_Highest_Ed)` students shared highest education level, `r sum(Shared_Table$Shared_Emp_Status)` shared employment status,`r sum(Shared_Table$Shared_Age_Range)` shared age range and `r sum(Shared_Table$Shared_Emp_Area)` shared employment area.
 
 ## Assumptions
 
