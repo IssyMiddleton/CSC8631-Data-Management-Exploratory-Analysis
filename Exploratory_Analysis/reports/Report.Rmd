@@ -72,11 +72,11 @@ I used the RMarkdown file to generate a report to be stored in the Reports secti
 
 ### Evaluation 
 
-At this stage I took time to thoroughly evaluate my work, creating the summary reports and presentation which reviews the steps executed. I checked there was a sufficient story to tell, regarding all the tools and techniques used. During this phase, I decided to update some of my analysis. 
+At this stage I took time to thoroughly evaluate my work, creating the summary reports and presentation which reviews the steps executed. I checked there was a sufficient story to tell, regarding all the tools and techniques used. During this phase, I decided to update some of my analysis. At this stage I amended colour templates to be colour-blind friendly and made sure my graph formatting was consistent.
 
 ### Deployment
 
-The deployment phase of this project included publishing a final version of the project to GitHub and ensuring my project files could be compressed and submitted in advance of the assessment deadline.
+The deployment phase of this project included publishing a final version of the project to GitHub and ensuring my project files could be compressed and submitted in advance of the assessment deadline. The use of RMarkdown reports, README files and comments within the R scripts increases transparency, allows the analysis to be reproduced or repeated.
 
 ## Key Findings
 
@@ -177,6 +177,14 @@ The employment area information shared by students was particularly varied and d
 Employment_Area_Total
 Employment_Area_by_Year
 ```
+
+The highest level of education information shared by students indicated a larger group with degree education. Students sharing information on education dropped annually.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+Highest_Ed_Total
+Highest_Ed_by_Year
+```
+
 
 ## Conclusions
 
