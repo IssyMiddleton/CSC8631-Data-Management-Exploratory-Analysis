@@ -1,16 +1,3 @@
+This a text file and not an R script.
 
-# graph messy as legends overlap
-
-Shared_Employment = ggplot(shared_es, aes(x=employment_area, fill = employment_status))+
-  theme_bw() +
-  geom_bar() +
-  labs(y = "Count of Survey Responses", x = "Age Range", fill = "Employment Status",
-       title = "Cyber Security Students that Provided Information on Employment")
-  ggsave(file.path('graphs', 'Shared_Employment_Status.pdf'))
-  
-# need to fix this one
-  
-  Intake = ggplot(enrol, aes(x=survey, fill = year))+
-  theme_bw() +
-  geom_bar() +
-  labs(y = "Survey", x = "Intake", fill = "Year", title = "Total Survey Responses")
+The contents were used as a placeholder for ongoing work, removed as completed and updated prior to the final deployment.

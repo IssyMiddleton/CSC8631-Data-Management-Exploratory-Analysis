@@ -112,7 +112,6 @@ Survey No. | % of Students | Ave. Items
 5   |   `r (Percent5)`    | `r (Amount_Shared5)`
 6   |   `r (Percent6)`    | `r (Amount_Shared6)`
 7   |   `r (Percent7)`    | `r (Amount_Shared7)`
-ls
 
 # Enrolments
 ![Enrolments overlapped but the gaps in students providing information could indicate settings were changed.](Images/Enrolments_Over_Time.png)

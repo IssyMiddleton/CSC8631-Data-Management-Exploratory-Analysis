@@ -1,3 +1,5 @@
+No changes were made to this folder.
+
 Here you can store a log file of any work you've done on this project.
 If you'll be logging your work, we recommend using the [log4r][1] package,
 which ProjectTemplate will automatically load for you if you turn the `logging`

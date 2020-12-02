@@ -1,1 +1,3 @@
-Here you'll store any configurations settings for your project. Use the DCF format that the `read.dcf()` function parses.
+In this folder the configurations settings for the project are located. 
+
+Use the DCF format that the `read.dcf()` function parses.
