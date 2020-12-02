@@ -101,7 +101,7 @@ The later scripts included:
 
 ![`r format(Shared_Table_rows)` shared at least one detail (gender, age range, employment status, employment area, highest education level).](Images/Shared_Info.png)
 
-# Evaluation (using counts)
+# Modelling - tables
 
 Survey No. | % of Students | Ave. Items
 -----------|------------------------| ------------------------
@@ -113,12 +113,14 @@ Survey No. | % of Students | Ave. Items
 6   |   `r (Percent6)`    | `r (Amount_Shared6)`
 7   |   `r (Percent7)`    | `r (Amount_Shared7)`
 
-# Enrolments
+# Evaluation - enrolments
 ![Enrolments overlapped but the gaps in students providing information could indicate settings were changed.](Images/Enrolments_Over_Time.png)
 
-# Details shared over time
+# Evalation - details shared
 ![It is possible that the survey settings were changed, either to encourage students to provide information or that these fields were mandatory.](Images/Details_Shared_Over_Time.png)
 
 # Deployment - creating a report
 
 I used the RMarkdown file to generate a report to be stored in the Reports section of the project file structure. During the generation of graphs and tables I returned to the data preparation phase frequently. Regularly, I would update the Git version control by using a Commit and Push commands. 
+
+I spent a far amount of time 'mopping up' and making sure code had comments for explanation of the steps and the reasons. Also I added to the README documents and checked contents of all the ProjectTemplate folders.
