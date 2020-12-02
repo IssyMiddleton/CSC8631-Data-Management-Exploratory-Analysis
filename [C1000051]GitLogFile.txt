@@ -1,3 +1,15 @@
+commit ea20afd0f90315cf542b9d9aa31b9b07b5dca63d
+Author: IssyMiddleton <issy.middleton@yahoo.com>
+Date:   Wed Dec 2 14:51:36 2020 +0000
+
+    Removing unused .png versions of graphs
+
+commit a423790da59a00b459d06c8a27eacb5b5eb988ba
+Author: IssyMiddleton <issy.middleton@yahoo.com>
+Date:   Wed Dec 2 13:34:14 2020 +0000
+
+    Test GitLog file generation, tidy up of README files
+
 commit 9f8e2b0a441ed48abf2096440fb874cb5d6ce28c
 Author: IssyMiddleton <issy.middleton@yahoo.com>
 Date:   Wed Dec 2 12:24:43 2020 +0000
