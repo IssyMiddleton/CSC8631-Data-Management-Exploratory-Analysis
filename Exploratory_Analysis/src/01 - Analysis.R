@@ -5,12 +5,14 @@ load.project()
 #folder. The Overview charts are first, then Gender, Age Range, Employment Area,
 #Employment Status and Highest Education
 
+# to check, amend or change the graphs from this file you may need to run the script below.
+
 if (!require("RColorBrewer")) {
   install.packages("RColorBrewer")
   library(RColorBrewer)
 }
 
-#Overview Charts 
+#Overview Charts used to describe the findings, within the report or presentation
 
 # in report - Insert student plot
 Shared_Info = ggplot(enrol, aes(x=Shared_Info))+
@@ -233,7 +235,27 @@ Highest_Ed_by_Year = ggplot(shared_h, aes(x=year, fill = highest_education_level
   ggsave(file.path('graphs', 'Survey_Responses_on_Highest_Education_by_Year.pdf'), width = 4, height = 3)
   ggsave(file.path('reports/Images', 'Survey_Responses_on_Highest_Education_by_Year.png'), width = 5, height = 3)
 
+# Line graphs of shared data numbers
 
-#Other calculations
-course_numbers = summary(enrol$survey)
+Details_Shared_Over_Time <- ggplot() +
+  theme_bw() +
+  geom_line(data = enrol, aes(enroldate, Shared_Info), colour = "darkcyan", size = 0.7)+
+  scale_x_date(date_labels="%b %y",date_breaks  ="2 months") +
+  theme(axis.text.x = element_text(size = 6)) +
+  labs(y = "Details shared", x = "Enrol Date", fill = "Amount of details shared", 
+       title = "Enrolments and amount of details shared")
+ggsave(file.path('graphs', 'Details_Shared_Over_Time.pdf'), width = 4, height = 3)
+ggsave(file.path('reports/Images', 'Details_Shared_Over_Time.png'), width = 5, height = 3)
+
+Enrolments_Over_Time <- ggplot() +
+  theme_bw() +
+  geom_line(data = enrol, aes(enroldate, survey), colour = "darkcyan", size = 0.7)+
+  scale_x_date(date_labels="%b %y",date_breaks  ="2 months") +
+  theme(axis.text.x = element_text(size = 6)) +
+  labs(y = "Survey", x = "Enrol Date", title = "Enrolment Dates")
+Enrolments_Over_Time
+ggsave(file.path('graphs', 'Enrolments_Over_Time.pdf'), width = 4, height = 3)
+ggsave(file.path('reports/Images', 'Enrolments_Over_Time.png'), width = 5, height = 3)
+
+
 

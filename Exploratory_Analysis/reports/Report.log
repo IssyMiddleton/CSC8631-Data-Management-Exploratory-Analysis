@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.11.19)  1 DEC 2020 15:30
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.11.19)  2 DEC 2020 09:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1061,42 +1061,52 @@ File: Report_files/figure-latex/unnamed-chunk-10-2.pdf Graphic file (type pdf)
 [11]
 File: Report_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-11-1.pdf>
+File: Report_files/figure-latex/unnamed-chunk-11-2.pdf Graphic file (type pdf)
+<use Report_files/figure-latex/unnamed-chunk-11-2.pdf>
 [12]
+File: Report_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use Report_files/figure-latex/unnamed-chunk-12-1.pdf>
+File: Report_files/figure-latex/unnamed-chunk-12-2.pdf Graphic file (type pdf)
+<use Report_files/figure-latex/unnamed-chunk-12-2.pdf>
+[13]
+File: Report_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use Report_files/figure-latex/unnamed-chunk-13-1.pdf>
+[14]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.54175pt on input line 471.
+(Font)              scaled to size 7.54175pt on input line 477.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.38696pt on input line 471.
+(Font)              scaled to size 5.38696pt on input line 477.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.775pt on input line 471.
+(Font)              scaled to size 10.775pt on input line 477.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.5425pt on input line 471.
+(Font)              scaled to size 7.5425pt on input line 477.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.3875pt on input line 471.
+(Font)              scaled to size 5.3875pt on input line 477.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.77286pt on input line 471.
+(Font)              scaled to size 10.77286pt on input line 477.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.541pt on input line 471.
+(Font)              scaled to size 7.541pt on input line 477.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.38643pt on input line 471.
+(Font)              scaled to size 5.38643pt on input line 477.
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--474
+Underfull \hbox (badness 10000) in paragraph at lines 474--480
 [][][] [] [][][][][] [] [][][][][][][][][] [] [][][][] [] [][] [] [][] [] [][][
 ] [][] [][][][][][][][][][] [][] [][] [][] [][][][][] [][] [][] [][] [][][][] [
 ][] [][][][][][][][][][][][][][] [] [][][] [] [][][][][][][][][][][][]$[] \TU/C
 alibri(0)/m/n/10 Forbes,
  []
 
-[13] (./Report.aux)
+[15] (./Report.aux)
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: 19C8E53115C065EA6DA5D960E94D4090;1506.
  ) 
 Here is how much of TeX's memory you used:
- 16801 strings out of 479393
- 300513 string characters out of 5877705
+ 16825 strings out of 479393
+ 301673 string characters out of 5877705
  752515 words of memory out of 5000000
- 35949 multiletter control sequences out of 15000+600000
+ 35969 multiletter control sequences out of 15000+600000
  541579 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,6n,121p,331b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Report.pdf (13 pages).
+Output written on Report.pdf (15 pages).

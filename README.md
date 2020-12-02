@@ -15,3 +15,6 @@ Instructions for loading this project in RStudio:
 
 library("ProjectTemplate")
 load.project()
+
+#The README file within Exploratory_Analysis folder explains the structure of the project material.
+#The Overview Presentation, in PowerPoint, and Report in .pdf format are stored in the reports folder. To rerun the reports open the .Rmd versions and select Knit.

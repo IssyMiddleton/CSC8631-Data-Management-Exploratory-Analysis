@@ -80,4 +80,5 @@ cyber7durationdaysunique = difftime(cyber7laststudentunique, cyber7firststudentu
 cyber7firststudentreport <- format(cyber7firststudentunique, format = "%d %B %Y")
 cyber7laststudentreport <- format(cyber7laststudentunique,format = "%d %B %Y")
 
-
+#Other calculations
+course_numbers = summary(enrol$survey)

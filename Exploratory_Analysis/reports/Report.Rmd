@@ -197,6 +197,14 @@ The highest level of education information shared by students indicated a larger
 Highest_Ed_Total
 Highest_Ed_by_Year
 ```
+#\newpage
+The pattern of students sharing information might indicate that there were changes to the enrolment survey settings, either to encourage students to provide information or that these fields were mandatory.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Insert highest education response plots
+Details_Shared_Over_Time
+Enrolments_Over_Time
+```
 
 ## Conclusions
 

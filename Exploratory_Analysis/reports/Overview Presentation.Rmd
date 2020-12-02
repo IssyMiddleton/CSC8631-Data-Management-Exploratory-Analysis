@@ -1,7 +1,7 @@
 ---
 title: "Overview Presentation"
-author: "Issy Middleton"
-date: "30/11/2020"
+author: "Issy Middleton, CSC8631 - Data Management & Exploratory Analysis"
+date: "December 2020"
 output: 
   powerpoint_presentation:
     reference: PresentationTemplate.potx
@@ -10,6 +10,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_knit$set(root.dir= normalizePath('..'))
+
 ```
 
 ```{r include=FALSE}
@@ -22,70 +23,61 @@ source("src/01 - Analysis.R")
 
 # Contents
 
-This is an R Markdown presentation, summarising the Exploratory_Analysis project conducted by Issy Middleton for CSC8631 - Data Management & Exploratory Analysis.
-<p>&nbsp;</p>
-* Looking at the data 
-* Deciding on an area of interest
-* Using ProjectTemplate
-* Version Control
-* Pre-processing
-* Starting the analysis
-* Removing duplicates
-* Refining graphs 
-* Loading into an RMarkdown report
+* Data Understanding 
+  - Looking at the data 
+  - Deciding on an area of interest
+* Setting up 
+  - ProjectTemplate and Version Control
+* Data Preparation & Modeling
+  - Pre-processing script development
+  - Developing the analysis
+  - Removing duplicates
+* Modeling & Evaluation
+  - Refining graphs
+  - Adding to pre-processing
+* Deployment
+  - Loading into an RMarkdown report
 
 # Looking at the data - names, size, types
 
-![The files varied in size and type but were all related to a training course entitled Cyber Security: Safety at Home, Online, in Life.](Images/Files.jpg)
+![It was possible to learn about the data by looking at the files and gain some early understanding. The files related to a Cyber security course.](Images/Files.JPG)
 
 # Deciding on an area of interest
 
-I loaded sample data into RStudio and started looking at the data using R commands (head, summary, glimpse). It was possible to determine the size of the tables, the types of data that had been captured and see missing items. I decided to investigate students’ willingness to share personal data at enrolment, given that the course was related to security. 
+By loading a few data files into RStudio and using R commands (head, summary, glimpse) it was possible to determine the size of the tables, the types of data that had been captured and see missing items. 
+
+The enrolment files contained details of gender, employment and age so I decided to investigate students’ willingness to share personal data at enrolment, given that the course was related to security. 
 
 Sample row and columns:
 
 ```{r cyber.security.1_enrolments, echo = FALSE,}
-cyber.security.1_enrolments[1:3,2:4]
+cyber.security.1_enrolments[1:3,3:4]
 ```
 
-# Using ProjectTemplate
-![To generate the necessary folders for my work, organise the files, load the R packages and data sets into memory I ran the ProjectTemplate scripts above. For more details about ProjectTemplate, see http://projecttemplate.net](Images/ProjectTemplateScript.jpg)
+# Setting up - ProjectTemplate and Git
+![To generate the necessary folders for my work, organise the files, load the R packages and data sets into memory I ran the ProjectTemplate scripts above. Syncing RStudio with my GitHub account allowed me to use Git for version control, by using Commit and Push.](Images/ProjectTemplateScript.jpg)
 
-# Version control 
+# Data Preparation - initial
 
-Syncing RStudio with my GitHub account allowed me to use Git for version control, by using Commit and Push. I created an new repository on GitHub, set up the security credentials under my profile and saved the public key into my version of RStudio. I downloaded Git and linked a new .RProj file. 
+The pre-processing scripts (or data munging code) are stored in `munge` folder and will be executed sequentially when load.project()` is called. 
 
-Git provides the functionality to control file versions and GitHub is a platform for hosting Git repositories.
+Numbers within filenames indicate the sequential order of the scripts. 
 
-# Pre-processing
+The initial scripts were:
 
-The pre-processing scripts (or data munging code) are stored in `munge` folder and will be executed sequentially when load.project()` is called. Numbers within filenames indicate the sequential order of the scripts. The scripts:
+- adding columns at runtime, merging data sets, adjusting data formats
+- filtering the data by groups of students willing to share data
+- categorising data
+ 
+# Initial Modeling - quick charts
 
-- add columns at runtime, merge data sets and adjust data formats
-- remove duplicate records where learner_id is not unique, calculating course duration between first and last enrolment date
-- filters the data by groups of students willing to share data
-- categorises data
-- provides additional data items on duplicate records
-- calculates volume of shared data items 
-- determines counts and percentages of data that it shared by student, by survey
-- and calculates counts and percentage of data that is not shared 
+![It was possible to produce lots of graphs really quickly with ggplot2 but work on formatting and colour was needed.](Images/Shared_Gender_by_Emp_by_Survey.png)
 
-# Starting the analysis
+# Identifying more data processing
 
-![It was necessary to calculate total enrolment by course. I adjusted date format and calculated course duration.](Images/Survey_Response_by_Course.png)
+![Students willing to share data dropped over time. To provide context, it was necessary to return to calculating total enrolment by course.I adjusted date format, removed duplicate records and calculated course duration.](Images/Survey_Responses_on_Highest_Education_by_Year.png)
 
-# Removing duplicates
-
-![During the analysis it became necessary to identify `r (repeatedcount)` duplicate records, leaving `r (enrolcount)` unique records, removing `r percent(repeatedcount/allcount)`.](Images/Duplicate_Records.png)
-
-# Attitudes to sharing
-
-![`r format(Shared_Table_rows)` shared at least one detail (gender, age range, employment status, employment area, highest education level), which equates to `r percent(sum(Shared_Table$Shared_Gender)/enrolcount)` of total students.](Images/Shared_Info.png)
-
-# Common findings
-
-![Over the seven courses, students sharing data dropped consistently across all categories, from almost 12% to under 8%.](Images/Survey_Responses_on_Employment_Status.png)
-# Test Table
+# Course details
 
 Survey No.|    Date First Student Enrolled   | Date Last Student Enrolled       |Duration (days) | No. of Students
 --------|-----------------------------|------------------------------|--------------| ----------
@@ -97,16 +89,37 @@ Survey No.|    Date First Student Enrolled   | Date Last Student Enrolled       
 6   |  `r (cyber6firststudentreport)` | `r (cyber6laststudentreport)`|`r format(cyber6durationdaysunique)` | `r (count6unique)`
 7   |  `r (cyber7firststudentreport)` | `r (cyber7laststudentreport)`|`r format(cyber7durationdaysunique)` | `r (count7unique)`
 
+# Data Preparation - continuing
 
+The later scripts included:
 
-# Key Findings
+- calculating volume of shared data items 
+- determining counts and percentages of data that it shared by student, by survey
+- calculating counts and percentage of data that is not shared 
 
-![However for those students that did share data the amount of details they provided stayed fairly level at around an average of 4.7 items per student, dropping very marginally in the last intake to 4.6. Where students did share at least one, `r (PercentInfo5)`  of students provide all five requested details.](Images/Survey_Responses_on_Gender_by_Year.png)
+# Modeling - attitudes to sharing
 
-# Refining graphs
+![`r format(Shared_Table_rows)` shared at least one detail (gender, age range, employment status, employment area, highest education level).](Images/Shared_Info.png)
 
-![Students willing to share data dropped over time.](Images/Survey_Responses_on_Highest_Education_by_Year.png)
+# Evaluation (using counts)
 
-# Loading into an RMarkdown report
+Survey No. | % of Students | Ave. Items
+-----------|------------------------| ------------------------
+1   |   `r (Percent1)`    | `r (Amount_Shared1)`  
+2   |   `r (Percent2)`    | `r (Amount_Shared2)`    
+3   |   `r (Percent3)`    | `r (Amount_Shared3)`
+4   |   `r (Percent4)`    | `r (Amount_Shared4)`
+5   |   `r (Percent5)`    | `r (Amount_Shared5)`
+6   |   `r (Percent6)`    | `r (Amount_Shared6)`
+7   |   `r (Percent7)`    | `r (Amount_Shared7)`
+ls
+
+# Enrolments
+![Enrolments overlapped but the gaps in students providing information could indicate settings were changed.](Images/Enrolments_Over_Time.png)
+
+# Details shared over time
+![It is possible that the survey settings were changed, either to encourage students to provide information or that these fields were mandatory.](Images/Details_Shared_Over_Time.png)
+
+# Deployment - creating a report
 
 I used the RMarkdown file to generate a report to be stored in the Reports section of the project file structure. During the generation of graphs and tables I returned to the data preparation phase frequently. Regularly, I would update the Git version control by using a Commit and Push commands. 
