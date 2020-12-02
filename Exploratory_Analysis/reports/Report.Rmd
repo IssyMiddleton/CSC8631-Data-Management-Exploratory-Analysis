@@ -99,8 +99,8 @@ Annual_Survey_Response
 ```
 Course intake dropped by c25% annually.
 \newpage
-### Amount of Data Shared by Students
 
+## Amount of Data Shared by Students
 Students were asked for information on gender, age range, employment status, employment area and highest education level. Analysis was conducted on these five details to determine willingness to share.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}

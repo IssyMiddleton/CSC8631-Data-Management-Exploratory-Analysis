@@ -10,7 +10,7 @@ attitudes to sharing personal data from student survey responses to seven
 intakes of an online cyber security course.
 
 To load the project, Set Your Working Directory, `setwd()` to the directory
-where this README file is located. Then you need to run the following two lines
+where this README file is located (Explanatory_Analysis). Then you need to run the following two lines
 of R code:
 
 library('ProjectTemplate') 
